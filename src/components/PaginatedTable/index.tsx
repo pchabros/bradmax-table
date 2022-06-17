@@ -14,7 +14,7 @@ function PaginatedTable<T>({ data, pageSize }: PaginatedTableProps<T>) {
     usePagination({ data: sortedData, pageSize, dependencies: [sort] });
   return (
     <div>
-      <TablePage pageData={pageData} onSort={sortHandler} />
+      <TablePage pageData={pageData} sort={sort} onSort={sortHandler} />
       <Pagination
         selectedPage={selectedPage}
         onPageChange={pageChangeHandler}

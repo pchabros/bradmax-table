@@ -5,10 +5,11 @@ import { Sort } from "../../../types";
 
 interface TablePageProps {
   pageData: object[];
+  sort: Sort;
   onSort: (sort: Sort) => void;
 }
 
-const TablePage: FC<TablePageProps> = ({ pageData, onSort }) => {
+const TablePage: FC<TablePageProps> = ({ pageData, sort, onSort }) => {
   const [columns, setColumns] = useState<string[]>([]);
   useEffect(() => {
     if (pageData[0]) setColumns(Object.keys(pageData[0]));
@@ -16,7 +17,7 @@ const TablePage: FC<TablePageProps> = ({ pageData, onSort }) => {
 
   return (
     <table>
-      <TableHeader columns={columns} onSort={onSort} />
+      <TableHeader columns={columns} sort={sort} onSort={onSort} />
       <TableBody pageData={pageData} />
     </table>
   );

@@ -1,0 +1,20 @@
+.headerCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sortIconsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  .sortIcon {
+    cursor: pointer;
+    color: #aaaaaa;
+    &:hover {
+      color: #333333;
+    }
+    &Active {
+      color: #333333;
+    }
+  }
+}

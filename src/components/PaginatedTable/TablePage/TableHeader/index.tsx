@@ -4,15 +4,21 @@ import { Sort } from "../../../../types";
 
 interface TableHeaderProps {
   columns: string[];
+  sort: Sort;
   onSort: (sort: Sort) => void;
 }
 
-const TableHeader: FC<TableHeaderProps> = ({ columns, onSort }) => {
+const TableHeader: FC<TableHeaderProps> = ({ columns, sort, onSort }) => {
   return (
     <thead>
       <tr>
         {columns.map((column) => (
-          <TableHeaderCell key={column} name={column} onSort={onSort} />
+          <TableHeaderCell
+            key={column}
+            name={column}
+            sort={sort}
+            onSort={onSort}
+          />
         ))}
       </tr>
     </thead>
