@@ -1,21 +1,23 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
-import Table from "./Table";
+import TablePage from "./TablePage";
+import useSort from "../../hooks/use-sort";
 
-interface PaginatedTableProps {
-  data: object[];
+interface PaginatedTableProps<T> {
+  data: T[];
   pageSize: number;
 }
 
-const PaginatedTable: FC<PaginatedTableProps> = ({ data, pageSize }) => {
+function PaginatedTable<T>({ data, pageSize }: PaginatedTableProps<T>) {
   const numberOfPages = data.length / pageSize;
   const [selectedPage, setSelectedPage] = useState(1);
   const [pageData, setPageData] = useState([{}]);
+  const { sort, sortedData, sortHandler } = useSort({ data });
   useEffect(() => {
     setPageData(
-      data.slice((selectedPage - 1) * pageSize, selectedPage * pageSize)
+      sortedData.slice((selectedPage - 1) * pageSize, selectedPage * pageSize)
     );
-  }, [data, selectedPage, pageSize]);
+  }, [sort, sortedData, selectedPage, pageSize]);
   const pageChangeHandler = (direction: "prev" | "next") => {
     setSelectedPage((current: number) => {
       if (direction === "prev") return current - 1;
@@ -24,7 +26,7 @@ const PaginatedTable: FC<PaginatedTableProps> = ({ data, pageSize }) => {
   };
   return (
     <div>
-      <Table data={pageData} />
+      <TablePage pageData={pageData} onSort={sortHandler} />
       <Pagination
         selectedPage={selectedPage}
         onPageChange={pageChangeHandler}
@@ -32,6 +34,6 @@ const PaginatedTable: FC<PaginatedTableProps> = ({ data, pageSize }) => {
       />
     </div>
   );
-};
+}
 
 export default PaginatedTable;

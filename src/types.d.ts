@@ -10,5 +10,9 @@ type Employee = {
   registered: string;
   tags: string[];
 };
+type Sort = {
+  by: string;
+  descending: boolean;
+};
 
-export { Employee };
+export { Employee, Sort };

@@ -2,13 +2,13 @@ import { FC } from "react";
 import TableRow from "./TableRow";
 
 interface TableBodyProps {
-  data: object[];
+  pageData: object[];
 }
 
-const TableBody: FC<TableBodyProps> = ({ data }) => {
+const TableBody: FC<TableBodyProps> = ({ pageData }) => {
   return (
     <tbody>
-      {data.map((rowData, i) => (
+      {pageData.map((rowData, i) => (
         <TableRow key={i} rowData={rowData} />
       ))}
     </tbody>
