@@ -1,15 +1,19 @@
 import { FC, useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
-import { Sort } from "../../../types";
+import { Filterable, Sortable } from "../../../types";
 
-interface TablePageProps {
+interface TablePageProps extends Filterable, Sortable {
   pageData: object[];
-  sort: Sort;
-  onSort: (sort: Sort) => void;
 }
 
-const TablePage: FC<TablePageProps> = ({ pageData, sort, onSort }) => {
+const TablePage: FC<TablePageProps> = ({
+  pageData,
+  sort,
+  onSort,
+  filter,
+  onFilter,
+}) => {
   const [columns, setColumns] = useState<string[]>([]);
   useEffect(() => {
     if (pageData[0]) setColumns(Object.keys(pageData[0]));
@@ -17,7 +21,13 @@ const TablePage: FC<TablePageProps> = ({ pageData, sort, onSort }) => {
 
   return (
     <table>
-      <TableHeader columns={columns} sort={sort} onSort={onSort} />
+      <TableHeader
+        columns={columns}
+        sort={sort}
+        onSort={onSort}
+        filter={filter}
+        onFilter={onFilter}
+      />
       <TableBody pageData={pageData} />
     </table>
   );

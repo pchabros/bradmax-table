@@ -1,14 +1,18 @@
 import { FC } from "react";
 import TableHeaderCell from "./TableHeaderCell";
-import { Sort } from "../../../../types";
+import { Filterable, Sortable } from "../../../../types";
 
-interface TableHeaderProps {
+interface TableHeaderProps extends Filterable, Sortable {
   columns: string[];
-  sort: Sort;
-  onSort: (sort: Sort) => void;
 }
 
-const TableHeader: FC<TableHeaderProps> = ({ columns, sort, onSort }) => {
+const TableHeader: FC<TableHeaderProps> = ({
+  columns,
+  sort,
+  onSort,
+  filter,
+  onFilter,
+}) => {
   return (
     <thead>
       <tr>
@@ -18,6 +22,8 @@ const TableHeader: FC<TableHeaderProps> = ({ columns, sort, onSort }) => {
             name={column}
             sort={sort}
             onSort={onSort}
+            filter={filter}
+            onFilter={onFilter}
           />
         ))}
       </tr>

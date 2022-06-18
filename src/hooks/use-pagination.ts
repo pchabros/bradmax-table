@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface usePaginationParams<T> {
+interface UsePaginationParams<T> {
   data: T[];
   pageSize: number;
   dependencies?: any[];
@@ -10,7 +10,7 @@ function usePagination<T>({
   data,
   pageSize,
   dependencies = [],
-}: usePaginationParams<T>) {
+}: UsePaginationParams<T>) {
   const [selectedPage, setSelectedPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [pageData, setPageData] = useState([{}]);

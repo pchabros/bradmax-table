@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
-import { Sort } from "../types";
+import { TableRecord, Sort } from "../types";
 
-interface useSortParams<T> {
+interface UseSortParams<T extends TableRecord> {
   data: T[];
 }
 
-function useSort<T>({ data }: useSortParams<T>) {
+function useSort<T extends TableRecord>({ data }: UseSortParams<T>) {
   const [sort, setSort] = useState<Sort>({
     by: "",
     descending: false,

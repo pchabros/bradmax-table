@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { Sort } from "../../../../types";
+import { Filterable, Sort, Sortable } from "../../../../types";
 import styles from "./table-header-cell.module.scss";
 
-interface TableHeaderCellProps {
+interface TableHeaderCellProps extends Filterable, Sortable {
   name: string;
   sort: Sort;
   onSort: (sort: Sort) => void;
@@ -15,20 +15,38 @@ const setIconClass = (name: string, descending: boolean, sort: Sort) => {
     : styles.sortIcon;
 };
 
-const TableHeaderCell: FC<TableHeaderCellProps> = ({ name, sort, onSort }) => {
+const TableHeaderCell: FC<TableHeaderCellProps> = ({
+  name,
+  sort,
+  onSort,
+  filter,
+  onFilter,
+}) => {
+  const filterRef = useRef<HTMLInputElement>(null);
   return (
     <th>
       <div className={styles.headerCell}>
-        <span>{name}</span>
-        <div className={styles.sortIconsContainer}>
-          <FiChevronUp
-            className={setIconClass(name, true, sort)}
-            onClick={onSort.bind(null, { by: name, descending: true })}
-          />
-          <FiChevronDown
-            className={setIconClass(name, false, sort)}
-            onClick={onSort.bind(null, { by: name, descending: false })}
-          />
+        <div>
+          <span>{name}</span>
+          <div className={styles.sortIconsContainer}>
+            <FiChevronUp
+              className={setIconClass(name, true, sort)}
+              onClick={onSort.bind(null, { by: name, descending: true })}
+            />
+            <FiChevronDown
+              className={setIconClass(name, false, sort)}
+              onClick={onSort.bind(null, { by: name, descending: false })}
+            />
+          </div>
+          <div>
+            <input
+              ref={filterRef}
+              type="text"
+              onChange={() =>
+                onFilter({ by: name, input: filterRef.current!.value })
+              }
+            />
+          </div>
         </div>
       </div>
     </th>

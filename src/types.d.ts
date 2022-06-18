@@ -1,3 +1,4 @@
+type TableRecord = Record<string, number | string | string[]>;
 type Employee = {
   index: number;
   guid: string;
@@ -10,9 +11,21 @@ type Employee = {
   registered: string;
   tags: string[];
 };
+type Filter = {
+  by: string;
+  input: string;
+};
 type Sort = {
   by: string;
   descending: boolean;
 };
+interface Filterable {
+  filter: Filter;
+  onFilter: (filter: Filter) => void;
+}
+interface Sortable {
+  sort: Sort;
+  onSort: (sort: Sort) => void;
+}
 
-export { Employee, Sort };
+export { TableRecord, Employee, Filter, Sort, Filterable, Sortable };
