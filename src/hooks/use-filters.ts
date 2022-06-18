@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { TableRecord, Filters } from "../types";
 
-interface UseFilterParams<T extends TableRecord> {
+interface UseFiltersParams<T extends TableRecord> {
   data: T[];
 }
 
-function useFilters<T extends TableRecord>({ data }: UseFilterParams<T>) {
+function useFilters<T extends TableRecord>({ data }: UseFiltersParams<T>) {
   const [filteredData, setFilteredData] = useState([{}]);
   const [filters, setFilters] = useState<Filters>({});
   const filterHandler = ({ by, input }: Filters) => {
