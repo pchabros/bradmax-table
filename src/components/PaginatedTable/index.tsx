@@ -2,7 +2,7 @@ import Pagination from "./Pagination";
 import TablePage from "./TablePage";
 import useSort from "../../hooks/use-sort";
 import usePagination from "../../hooks/use-pagination";
-import useFilter from "../../hooks/use-filter";
+import useFilters from "../../hooks/use-filters";
 import { TableRecord } from "../../types";
 
 interface PaginatedTableProps<T extends TableRecord> {
@@ -15,7 +15,7 @@ function PaginatedTable<T extends TableRecord>({
   pageSize,
 }: PaginatedTableProps<T>) {
   const { sort, sortedData, sortHandler } = useSort({ data });
-  const { filter, filteredData, filterHandler } = useFilter({
+  const { filters, filteredData, filterHandler } = useFilters({
     data: sortedData,
   });
   const { selectedPage, pageData, pageChangeHandler, numberOfPages } =
@@ -26,7 +26,7 @@ function PaginatedTable<T extends TableRecord>({
         pageData={pageData}
         sort={sort}
         onSort={sortHandler}
-        filter={filter}
+        filter={filters}
         onFilter={filterHandler}
       />
       <Pagination

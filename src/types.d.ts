@@ -11,10 +11,7 @@ type Employee = {
   registered: string;
   tags: string[];
 };
-type Filter = {
-  by: string;
-  input: string;
-};
+type Filters = Record<string, string>;
 type Sort = {
   by: string;
   descending: boolean;
@@ -28,4 +25,4 @@ interface Sortable {
   onSort: (sort: Sort) => void;
 }
 
-export { TableRecord, Employee, Filter, Sort, Filterable, Sortable };
+export { TableRecord, Employee, Filters, Sort, Filterable, Sortable };
