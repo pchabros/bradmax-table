@@ -15,8 +15,11 @@ function usePagination<T>({
   const [numberOfPages, setNumberOfPages] = useState(1);
   const [pageData, setPageData] = useState([{}]);
   useEffect(() => {
-    setNumberOfPages(data.length / pageSize);
-  }, [data, pageSize]);
+    const numberOfPages = Math.ceil(data.length / pageSize);
+    setNumberOfPages(numberOfPages);
+    if (selectedPage > numberOfPages)
+      setSelectedPage(Math.max(numberOfPages, 1));
+  }, [data, pageSize, selectedPage]);
   useEffect(() => {
     setPageData(
       data.slice((selectedPage - 1) * pageSize, selectedPage * pageSize)
@@ -24,8 +27,8 @@ function usePagination<T>({
   }, [...dependencies, data, selectedPage, pageSize]);
   const pageChangeHandler = (direction: "prev" | "next") => {
     setSelectedPage((current: number) => {
-      if (direction === "prev") return current - 1;
-      else return current + 1;
+      if (direction === "prev") return Math.max(current - 1, 1);
+      else return Math.min(current + 1, numberOfPages);
     });
   };
   return {
