@@ -3,11 +3,11 @@ import TableHeaderCell from "./TableHeaderCell";
 import { Filterable, Sortable } from "../../../types";
 
 interface TableHeaderProps extends Filterable, Sortable {
-  columns: string[];
+  columns?: string[];
 }
 
 const TableHeader: FC<TableHeaderProps> = ({
-  columns,
+  columns = [],
   sort,
   onSort,
   filter,

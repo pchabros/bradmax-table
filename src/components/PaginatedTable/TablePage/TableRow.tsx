@@ -1,15 +1,20 @@
 import { FC } from "react";
+import { TableRecord } from "../../../types";
 
 interface TableRowProps {
-  rowData: object;
+  rowData: TableRecord;
+  columns: string[];
 }
 
-const TableRow: FC<TableRowProps> = ({ rowData }) => {
+const TableRow: FC<TableRowProps> = ({ rowData, columns }) => {
+  const rowGuid = rowData.guid;
   return (
     <tr>
-      {Object.values(rowData).map((value, i) => (
-        <td key={i}>{value}</td>
-      ))}
+      {Object.entries(rowData).map(([column, value]) => {
+        if (columns.includes(column)) {
+          return <td key={`${rowGuid}-${column}`}>{value}</td>;
+        }
+      })}
     </tr>
   );
 };

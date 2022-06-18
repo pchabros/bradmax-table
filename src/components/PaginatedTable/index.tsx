@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import SearchInput from "./SearchInput";
+import Table from "./Table";
 import TableHeader from "./TableHeader";
 import TablePage from "./TablePage/";
 import useFilters from "../../hooks/use-filters";
@@ -28,23 +28,29 @@ function PaginatedTable<T extends TableRecord>({
   const { sort, sortedData, sortHandler } = useSort({ data: filteredData });
   const { selectedPage, pageData, pageChangeHandler, numberOfPages } =
     usePagination({ data: sortedData, pageSize, dependencies: [sort] });
-  const [columns, setColumns] = useState<string[]>([]);
-  useEffect(() => {
-    if (pageData[0]) setColumns(Object.keys(pageData[0]));
-  }, [pageData]);
   return (
     <div>
       <SearchInput onSearch={searchHandler} />
-      <table>
+      <Table
+        columns={[
+          "age",
+          "name",
+          "gender",
+          "company",
+          "email",
+          "phone",
+          "registered",
+          "tags",
+        ]}
+      >
         <TableHeader
-          columns={columns}
           sort={sort}
           onSort={sortHandler}
           filter={filters}
           onFilter={filtersHandler}
         />
         <TablePage pageData={pageData} />
-      </table>
+      </Table>
       <Pagination
         selectedPage={selectedPage}
         onPageChange={pageChangeHandler}
