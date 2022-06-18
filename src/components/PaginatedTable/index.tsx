@@ -14,12 +14,12 @@ function PaginatedTable<T extends TableRecord>({
   data,
   pageSize,
 }: PaginatedTableProps<T>) {
-  const { sort, sortedData, sortHandler } = useSort({ data });
   const { filters, filteredData, filterHandler } = useFilters({
-    data: sortedData,
+    data,
   });
+  const { sort, sortedData, sortHandler } = useSort({ data: filteredData });
   const { selectedPage, pageData, pageChangeHandler, numberOfPages } =
-    usePagination({ data: filteredData, pageSize, dependencies: [sort] });
+    usePagination({ data: sortedData, pageSize, dependencies: [sort] });
   return (
     <div>
       <TablePage
