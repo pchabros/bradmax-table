@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-import { Filterable, Sort, Sortable } from "../../../../types";
+import { Filterable, Sort, Sortable } from "../../../types";
 import styles from "./table-header-cell.module.scss";
 
 interface TableHeaderCellProps extends Filterable, Sortable {

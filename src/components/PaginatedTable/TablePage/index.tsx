@@ -1,35 +1,17 @@
-import { FC, useEffect, useState } from "react";
-import TableBody from "./TableBody";
-import TableHeader from "./TableHeader";
-import { Filterable, Sortable } from "../../../types";
+import { FC } from "react";
+import TableRow from "./TableRow";
 
-interface TablePageProps extends Filterable, Sortable {
+interface TablePageProps {
   pageData: object[];
 }
 
-const TablePage: FC<TablePageProps> = ({
-  pageData,
-  sort,
-  onSort,
-  filter,
-  onFilter,
-}) => {
-  const [columns, setColumns] = useState<string[]>([]);
-  useEffect(() => {
-    if (pageData[0]) setColumns(Object.keys(pageData[0]));
-  }, [pageData]);
-
+const TablePage: FC<TablePageProps> = ({ pageData }) => {
   return (
-    <table>
-      <TableHeader
-        columns={columns}
-        sort={sort}
-        onSort={onSort}
-        filter={filter}
-        onFilter={onFilter}
-      />
-      <TableBody pageData={pageData} />
-    </table>
+    <tbody>
+      {pageData.map((rowData, i) => (
+        <TableRow key={i} rowData={rowData} />
+      ))}
+    </tbody>
   );
 };
 

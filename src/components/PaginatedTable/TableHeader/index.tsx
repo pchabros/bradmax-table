@@ -1,6 +1,6 @@
 import { FC } from "react";
 import TableHeaderCell from "./TableHeaderCell";
-import { Filterable, Sortable } from "../../../../types";
+import { Filterable, Sortable } from "../../../types";
 
 interface TableHeaderProps extends Filterable, Sortable {
   columns: string[];

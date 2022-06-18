@@ -8,7 +8,7 @@ interface UseFiltersParams<T extends TableRecord> {
 function useFilters<T extends TableRecord>({ data }: UseFiltersParams<T>) {
   const [filteredData, setFilteredData] = useState([{}]);
   const [filters, setFilters] = useState<Filters>({});
-  const filterHandler = ({ by, input }: Filters) => {
+  const filtersHandler = ({ by, input }: Filters) => {
     setFilters((prev) => ({ ...prev, [by]: input }));
   };
   useEffect(() => {
@@ -28,7 +28,7 @@ function useFilters<T extends TableRecord>({ data }: UseFiltersParams<T>) {
   return {
     filters,
     filteredData,
-    filterHandler,
+    filtersHandler,
   };
 }
 
