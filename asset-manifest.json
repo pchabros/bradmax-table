@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bradmax-table/static/css/main.2531165e.css",
-    "main.js": "/bradmax-table/static/js/main.0e20b120.js",
+    "main.css": "/bradmax-table/static/css/main.42f589ea.css",
+    "main.js": "/bradmax-table/static/js/main.7a5dcb66.js",
     "static/js/787.b0e264d2.chunk.js": "/bradmax-table/static/js/787.b0e264d2.chunk.js",
     "index.html": "/bradmax-table/index.html",
-    "main.2531165e.css.map": "/bradmax-table/static/css/main.2531165e.css.map",
-    "main.0e20b120.js.map": "/bradmax-table/static/js/main.0e20b120.js.map",
+    "main.42f589ea.css.map": "/bradmax-table/static/css/main.42f589ea.css.map",
+    "main.7a5dcb66.js.map": "/bradmax-table/static/js/main.7a5dcb66.js.map",
     "787.b0e264d2.chunk.js.map": "/bradmax-table/static/js/787.b0e264d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2531165e.css",
-    "static/js/main.0e20b120.js"
+    "static/css/main.42f589ea.css",
+    "static/js/main.7a5dcb66.js"
   ]
 }
