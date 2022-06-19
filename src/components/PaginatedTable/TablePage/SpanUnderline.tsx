@@ -9,7 +9,6 @@ interface SpanUnderlineProps {
 const SpanUnderline: FC<SpanUnderlineProps> = ({ value, filter }) => {
   let content;
   if (filter && value.includes(filter)) {
-    console.log(value);
     const [prefix, suffix] = value.toString().split(filter);
     content = (
       <span className={styles.pill}>

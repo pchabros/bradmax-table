@@ -14,12 +14,16 @@ function useSort<T extends TableRecord>({ data }: UseSortParams<T>) {
     setSort({ by, descending });
   };
   const sortedData = useMemo(() => {
-    const sortBy = sort.by as keyof T;
-    const compareFunction = sort.descending
-      ? (a: T, b: T) => (a[sortBy] > b[sortBy] ? 1 : -1)
-      : (a: T, b: T) => (a[sortBy] < b[sortBy] ? 1 : -1);
-    return sort.by ? data.sort(compareFunction) : data;
-  }, [data, sort]);
+    if (sort.by) {
+      const sortBy = sort.by as keyof T;
+      const compareFunction = sort.descending
+        ? (a: T, b: T) => (a[sortBy] > b[sortBy] ? 1 : -1)
+        : (a: T, b: T) => (a[sortBy] < b[sortBy] ? 1 : -1);
+      return sort.by ? data.sort(compareFunction) : data;
+    } else {
+      return data;
+    }
+  }, [data, sort.by, sort.descending]);
   return {
     sort,
     sortedData,
