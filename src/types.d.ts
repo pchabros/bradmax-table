@@ -21,7 +21,6 @@ type Sort = {
   descending: boolean;
 };
 interface Filterable {
-  filter: Filter;
   onFilter: (filter: Filter) => void;
 }
 interface Sortable {

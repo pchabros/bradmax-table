@@ -1,0 +1,8 @@
+.pill {
+  // text-decoration: underline;
+  border-right: 1px solid #cccccc;
+  padding: 0 8px;
+  &:last-child {
+    border-right: none;
+  }
+}

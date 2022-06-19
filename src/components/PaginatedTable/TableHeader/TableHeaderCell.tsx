@@ -19,7 +19,6 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
   name,
   sort,
   onSort,
-  filter,
   onFilter,
 }) => {
   const filterRef = useRef<HTMLInputElement>(null);

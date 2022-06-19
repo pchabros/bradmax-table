@@ -47,7 +47,6 @@ function PaginatedTable<T extends TableRecord>({
         <TableHeader
           sort={sort}
           onSort={sortHandler}
-          filter={filters}
           onFilter={filtersHandler}
         />
         <TablePage pageData={pageData} />

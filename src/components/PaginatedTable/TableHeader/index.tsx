@@ -10,7 +10,6 @@ const TableHeader: FC<TableHeaderProps> = ({
   columns = [],
   sort,
   onSort,
-  filter,
   onFilter,
 }) => {
   return (
@@ -22,7 +21,6 @@ const TableHeader: FC<TableHeaderProps> = ({
             name={column}
             sort={sort}
             onSort={onSort}
-            filter={filter}
             onFilter={onFilter}
           />
         ))}
