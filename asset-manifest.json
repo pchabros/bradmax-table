@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.be98ba62.css",
-    "main.js": "/static/js/main.22fb9f9d.js",
-    "static/js/787.b0e264d2.chunk.js": "/static/js/787.b0e264d2.chunk.js",
-    "index.html": "/index.html",
-    "main.be98ba62.css.map": "/static/css/main.be98ba62.css.map",
-    "main.22fb9f9d.js.map": "/static/js/main.22fb9f9d.js.map",
-    "787.b0e264d2.chunk.js.map": "/static/js/787.b0e264d2.chunk.js.map"
+    "main.css": "/bradmax-table/static/css/main.be98ba62.css",
+    "main.js": "/bradmax-table/static/js/main.eb0c57ab.js",
+    "static/js/787.b0e264d2.chunk.js": "/bradmax-table/static/js/787.b0e264d2.chunk.js",
+    "index.html": "/bradmax-table/index.html",
+    "main.be98ba62.css.map": "/bradmax-table/static/css/main.be98ba62.css.map",
+    "main.eb0c57ab.js.map": "/bradmax-table/static/js/main.eb0c57ab.js.map",
+    "787.b0e264d2.chunk.js.map": "/bradmax-table/static/js/787.b0e264d2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.be98ba62.css",
-    "static/js/main.22fb9f9d.js"
+    "static/js/main.eb0c57ab.js"
   ]
 }
