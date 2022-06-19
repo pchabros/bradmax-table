@@ -1,0 +1,16 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  span {
+    margin: 0 10px;
+  }
+  button {
+    all: unset;
+    display: flex;
+    @include arrow-icon;
+  }
+}

@@ -1,20 +1,23 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
 .headerCell {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.sortIconsContainer {
-  display: flex;
   flex-direction: column;
-  margin: 0 10px;
-  .sortIcon {
-    cursor: pointer;
-    color: #aaaaaa;
-    &:hover {
-      color: #333333;
+  &Label {
+    display: flex;
+    span {
+      flex-grow: 1;
     }
-    &Active {
-      color: #333333;
+    .sortIconsContainer {
+      margin-left: 5px;
+      .sortIcon {
+        @include arrow-icon;
+      }
     }
+  }
+  input {
+    @include text-input;
+    margin: 8px auto;
   }
 }

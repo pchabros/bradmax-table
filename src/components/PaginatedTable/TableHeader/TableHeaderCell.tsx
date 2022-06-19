@@ -26,7 +26,7 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
   return (
     <th>
       <div className={styles.headerCell}>
-        <div>
+        <div className={styles.headerCellLabel}>
           <span>{name}</span>
           <div className={styles.sortIconsContainer}>
             <FiChevronUp
@@ -38,16 +38,15 @@ const TableHeaderCell: FC<TableHeaderCellProps> = ({
               onClick={onSort.bind(null, { by: name, descending: false })}
             />
           </div>
-          <div>
-            <input
-              ref={filterRef}
-              type="text"
-              onChange={() =>
-                onFilter({ by: name, input: filterRef.current!.value })
-              }
-            />
-          </div>
         </div>
+        <input
+          ref={filterRef}
+          type="text"
+          spellCheck={false}
+          onChange={() =>
+            onFilter({ by: name, input: filterRef.current!.value })
+          }
+        />
       </div>
     </th>
   );

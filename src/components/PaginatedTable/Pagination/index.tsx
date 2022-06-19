@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import styles from "./pagination.module.scss";
 
 interface PaginationProps {
   selectedPage: number;
@@ -12,19 +14,19 @@ const Pagination: FC<PaginationProps> = ({
   numberOfPages,
 }) => {
   return (
-    <div>
+    <div className={styles.pagination}>
       <button
         onClick={onPageChange.bind(null, "prev")}
         disabled={selectedPage === 1}
       >
-        Prev
+        <FiChevronLeft />
       </button>
       <span>{selectedPage}</span>
       <button
         onClick={onPageChange.bind(null, "next")}
         disabled={selectedPage === numberOfPages}
       >
-        Next
+        <FiChevronRight />
       </button>
     </div>
   );

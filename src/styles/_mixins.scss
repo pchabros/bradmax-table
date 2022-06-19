@@ -1,0 +1,28 @@
+@import "./colors";
+
+@mixin text-input {
+  all: unset;
+  border-bottom: 1px solid $color-grey;
+  width: 95%;
+  font-weight: 300;
+  &:hover,
+  &:focus {
+    border-color: $color-black;
+  }
+  transition: all 0.3s;
+}
+
+@mixin arrow-icon {
+  cursor: pointer;
+  color: $color-grey-dark;
+  &:disabled {
+    color: $color-grey;
+    cursor: default;
+  }
+  &:hover:not(:disabled) {
+    color: $color-black;
+    transform: scale(1.2);
+  }
+  justify-content: center;
+  transition: 0.3s all;
+}

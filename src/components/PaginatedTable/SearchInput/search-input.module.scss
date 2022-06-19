@@ -1,0 +1,10 @@
+@import "../../../styles/mixins";
+
+.searchInput {
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  input {
+    @include text-input;
+  }
+}

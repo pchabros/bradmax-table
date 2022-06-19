@@ -8,6 +8,7 @@ import usePagination from "../../hooks/use-pagination";
 import useSearch from "../../hooks/use-search";
 import useSort from "../../hooks/use-sort";
 import { TableRecord } from "../../types";
+import styles from "./paginated-table.module.scss";
 
 interface PaginatedTableProps<T extends TableRecord> {
   data: T[];
@@ -29,7 +30,7 @@ function PaginatedTable<T extends TableRecord>({
   const { selectedPage, pageData, pageChangeHandler, numberOfPages } =
     usePagination({ data: sortedData, pageSize, dependencies: [sort] });
   return (
-    <div>
+    <div className={styles.paginatedTable}>
       <SearchInput onSearch={searchHandler} />
       <Table
         columns={[
