@@ -1,4 +1,5 @@
-type TableRecord = Record<string, number | string | string[]>;
+type CellValue = number | string | string[];
+type TableRecord = Record<string, CellValue>;
 type Employee = {
   index: number;
   guid: string;
@@ -28,4 +29,13 @@ interface Sortable {
   onSort: (sort: Sort) => void;
 }
 
-export { TableRecord, Employee, Filters, Sort, Search, Filterable, Sortable };
+export {
+  CellValue,
+  TableRecord,
+  Employee,
+  Filters,
+  Sort,
+  Search,
+  Filterable,
+  Sortable,
+};
