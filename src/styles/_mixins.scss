@@ -19,7 +19,8 @@
     color: $color-grey;
     cursor: default;
   }
-  &:hover:not(:disabled) {
+  &:hover:not(:disabled),
+  &Active {
     color: $color-black;
     transform: scale(1.2);
   }
