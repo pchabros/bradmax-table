@@ -1,8 +1,9 @@
 import PaginatedTable from "./components/PaginatedTable";
 import data from "./data.json";
+import { preprocessEmployeeData } from "./utils";
 import { Employee } from "./types";
 
-const employeeData = data as Employee[];
+const employeeData = preprocessEmployeeData(data as Employee[]);
 
 function App() {
   return (
