@@ -5,12 +5,15 @@
   th,
   td {
     border: 1px solid $color-grey;
-    padding: 10px 10px;
     white-space: nowrap;
   }
+  td {
+    padding: 10px 4px;
+  }
   th {
-    text-align: left;
+    padding: 8px;
     padding-bottom: 0;
+    text-align: left;
   }
   tbody {
     tr:hover {
